@@ -105,11 +105,14 @@ function autoRefresh(){
   
   //calling the refresh function
   autoRefresh();
+
+  //adding event listener to the button for changing background every time its clicked
+  
+  document.getElementById('load-quote').addEventListener("click", getRandomColor, false);
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false );
-document.getElementById('load-quote').addEventListener("click", getRandomColor, false);
 
