@@ -116,8 +116,11 @@ h1 {
 }
 
 .tags::before{
-  content: ", ";
+  content: ", ( ";
   font-style: bold;
+}
+.tags::after{
+  content:" )"
 }
 
 @media (min-width: 768px) {
