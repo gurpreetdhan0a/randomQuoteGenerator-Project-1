@@ -18,17 +18,20 @@ var quoteBox=document.getElementById("quote-box");
 var quotes = [
   {
     quote:"That's the thing about books.They let you travel without moving your feet.",
-    author:"JHUMOPA LAHIRI"
+    author:"JHUMOPA LAHIRI",
+    tags:"Humor"
   },
   {
     quote:"The question is'nt who is going to let me;it's who is going to stop me.",
-    author:"Ayan Rand"
+    author:"Ayan Rand",
+    tags:"Politics, Humor"
   },
   {
     quote:"Be the change that you wish to see in the world",
     author:"Mahatma Gandhi",
     citation:"publication",
-    year:1940
+    year:1940,
+    tags:"Humor"
   },
   {
     quote:"If you don't have time to read, you don't have the time (or the tools) to write. Simple as that.",
@@ -49,8 +52,7 @@ var quotes = [
 function getRandomQuote()
 {
   var randomNumber=(Math.floor(Math.random() * quotes.length));
-  return randomNumber;
-
+  return quotes[randomNumber];
 }
 
 //generating a random color and setting its value to change background color
@@ -68,25 +70,30 @@ function getRandomColor()
 function printQuote()
 {
 
-  var random=getRandomQuote();
+  var randomQuote=getRandomQuote();
 
   var emptyString='';
 
-  emptyString = '<p class="quote">'+quotes[random].quote+'</p>'
-  emptyString += '<p class="source">'+quotes[random].author;
+  emptyString = '<p class="quote">'+randomQuote.quote+'</p>'
+  emptyString += '<p class="source">'+randomQuote.author;
 
   // checking if any quote has citation property
-  if (quotes[random].citation)
+  if (randomQuote.citation)
   {
-    emptyString += '<span class="citation">' + quotes[random].citation + '</span>'
+    emptyString += '<span class="citation">' + randomQuote.citation + '</span>'
   
   }
 
   // checking if any quote has year property
-  if (quotes[random].year)
+  if (randomQuote.year)
   {
-    emptyString += '<span class="year">' + quotes[random].year + '</span>'
+    emptyString += '<span class="year">' + randomQuote.year + '</span>'
 
+  }
+
+  if (randomQuote.tags)
+  {
+    emptyString += '<span class="tags">' + randomQuote.tags + '</span>'
   }
 
   emptyString+='</p>';
